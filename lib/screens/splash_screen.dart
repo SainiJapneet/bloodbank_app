@@ -3,9 +3,14 @@ import 'package:bloodbank_app/screens/onboarding_screen.dart';
 import 'package:bloodbank_app/widgets/onboarding_widget.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
+  @override
+  State<StatefulWidget> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,23 +18,17 @@ class SplashScreen extends StatelessWidget {
         title: Text("My App"),
       ),
       body: SafeArea(
-        child: InkWell(
-          onTap: () => {
-            Navigator.pushNamed(context, '/onboarding'),
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //     builder: (context) => OnboardingPage(),
-            //   ),
-            // )
-          },
-          child: Center(
+        child: Center(
             child: Image.asset(
-              "assets/bloodbank.png",
-            ),
-          ),
-        ),
+          "assets/bloodbank.png",
+        )),
       ),
     );
+  }
+
+  void initState() {
+    Future.delayed(Duration(seconds: 3),
+        () => Navigator.pushNamed(context, '/onboarding'));
+    super.initState();
   }
 }
