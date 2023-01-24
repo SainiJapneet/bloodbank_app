@@ -8,17 +8,19 @@
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       body: SafeArea(
-//         child: Container(
-//           color: Colors.red,
-//           width: double.infinity,
-//           child: SingleChildScrollView(
-//             child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
+//         child: InkWell(
+//           onTap: () => {
+//             Navigator.pop(context),
+//           },
+//           child: Container(
+//             color: Colors.red,
+//             child: ListView(
+//               // mainAxisAlignment: MainAxisAlignment.center,
 //               children: onboardingData
 //                   .map(
-//                     (singleOnboardingScreen) => onboardingWidget(
-//                       imageUrl: singleOnboardingScreen["image_url"]!,
-//                       text: singleOnboardingScreen["text"]!,
+//                     (onboardingSingleData) => onboardingWidget(
+//                       onboardingSingleData["text"]!,
+//                       imageUrl: onboardingSingleData["image_url"],
 //                     ),
 //                   )
 //                   .toList(),
@@ -28,6 +30,7 @@
 //       ),
 //     );
 //   }
+// }
 
 //   Widget onboardingWidget(
 //       {required String imageUrl, String text = "", int? index}) {

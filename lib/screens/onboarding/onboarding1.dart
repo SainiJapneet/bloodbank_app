@@ -1,10 +1,11 @@
-import '../../constants/onboarding_data.dart';
+import 'package:bloodbank_app/constants/onboarding_data.dart';
+import 'package:bloodbank_app/screens/onboarding/onboarding2.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/onboarding_widget.dart';
 
-class MyOnboardingPage1 extends StatelessWidget {
-  const MyOnboardingPage1({super.key});
+class OnboardingPage1 extends StatelessWidget {
+  const OnboardingPage1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +13,18 @@ class MyOnboardingPage1 extends StatelessWidget {
       body: SafeArea(
         child: InkWell(
           onTap: () => {
-            Navigator.pop(context),
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => OnboardingPage2(),
+              ),
+            )
           },
           child: Container(
             color: Colors.red,
-            width: double.infinity,
             child: onboardingWidget(
-              imageUrl: onboardingData[1]["image_url"]!,
-              text: onboardingData[1]["text"]!,
+              onboardingData[1]["text"]!,
+              imageUrl: onboardingData[1]["image_url"],
             ),
           ),
         ),
