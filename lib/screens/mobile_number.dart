@@ -8,6 +8,7 @@ class MobileNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController phoneNumberController = ;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -26,11 +27,12 @@ class MobileNumber extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      width: 265,
+                      width: MediaQuery.of(context).size.width * 0.73,
                       margin: EdgeInsets.only(
                         top: 15,
                       ),
-                      padding: EdgeInsets.fromLTRB(60, 14, 60, 17),
+                      padding: EdgeInsets.fromLTRB(
+                          MediaQuery.of(context).size.width * 0.16, 14, 60, 17),
                       decoration: BoxDecoration(
                           border: Border.all(
                             width: 0.8,
@@ -40,12 +42,25 @@ class MobileNumber extends StatelessWidget {
                               20,
                             ),
                           )),
-                      child: Text(
+                      /*child: Text(
                         "+91",
                         style: TextStyle(
                           fontSize: 18,
                           color: MyColors.redPrimary,
                         ),
+                      ),*/
+                      child: TextField(
+                        //validator (value) =>
+                        //
+                        controller: _phoneNumberController,
+
+                        decoration: InputDecoration(
+                            prefix: Text(
+                              "+91",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            //border: InputBorder,
+                            hintText: 'Your mobile number'),
                       ),
                     ),
                   ],
@@ -57,9 +72,15 @@ class MobileNumber extends StatelessWidget {
                 height: 67,
               ),
               ElevatedButton(
-                onPressed: () => {},
-                child: Text("LogIn"),
-              ),
+                  onPressed: () => {
+                    if(_phoneNumberController.text.isNotEmpty){
+                    print(_phoneNumberController.value),
+                    }
+                  },
+                  child: Text("LogIn"),
+                  style: ButtonStyle(
+                      fixedSize: MaterialStateProperty.all(
+                          Size(MediaQuery.of(context).size.width * 0.73, 53)))),
               /*Container(
                 height: 53,
                 width: 263,

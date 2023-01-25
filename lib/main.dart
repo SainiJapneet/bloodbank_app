@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.teal,
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.purple),
+            backgroundColor:
+                MaterialStateProperty.all(Color.fromARGB(168, 255, 14, 14)),
             padding: MaterialStateProperty.all(EdgeInsets.all(10)),
           ))),
       // home: SplashScreen(),
