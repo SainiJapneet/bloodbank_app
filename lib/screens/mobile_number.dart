@@ -3,10 +3,11 @@
 import 'dart:developer';
 
 import 'package:bloodbank_app/constants/colors.dart';
+import 'package:bloodbank_app/constants/routes.dart';
 import 'package:flutter/material.dart';
 
-class MobileNumber extends StatelessWidget {
-  const MobileNumber({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +79,33 @@ class MobileNumber extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+                onPressed: () => {
+                  if (_phoneNumberController.text.isNotEmpty)
+                    {
+                      print(
+                          "Your phone number is ${_phoneNumberController.text}"),
+                      Navigator.pushNamed(context, Routes.otpScreen)
+                    }
+                },
+                child: const Text("Login"),
+              ),
+
+              // Container(
+              //   height: 53,
+              //   width: 263,
+              //   decoration: BoxDecoration(
+              //     color: MyColors.redPrimary,
+              //     borderRadius: BorderRadius.circular(4),
+              //   ),
+              //   child: Center(
+              //     child: Text(
+              //       "Login",
+              //       style: TextStyle(
+              //         color: Colors.white,
+              //       ),
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),
