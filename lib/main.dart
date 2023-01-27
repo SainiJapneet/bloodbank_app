@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       // home: SplashScreen(),
       initialRoute: Routes.loginScreen,
       routes: {
-        // "/": (context) => SplashScreen(),
+//        "/": (context) => SplashScreen(),
         Routes.onboardingScreen: (context) => OnboardingPage(),
         Routes.onboarding1Screen: (context) => OnboardingPage1(),
         Routes.onboarding2Screen: (context) => OnboardingPage2(),
