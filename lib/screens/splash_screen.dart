@@ -7,6 +7,36 @@ class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    Future.delayed(
+      Duration(seconds: 3),
+      () => Navigator.pushNamed(context, '/onboarding'),
+    );
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    Future.delayed(
+      Duration(seconds: 3),
+      () => Navigator.pushNamed(context, '/onboarding'),
+    );
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   State<StatefulWidget> createState() => _SplashScreenState();
 }
 
@@ -18,9 +48,9 @@ class _SplashScreenState extends State<SplashScreen> {
         title: Text("My App"),
       ),
       body: SafeArea(
-        child: Center(
+          child: Center(
             child: Image.asset(
-          "assets/bloodbank.png",
+              "assets/bloodbank.png",
         )),
       ),
     );

@@ -1,4 +1,6 @@
-import 'dart:ui';
+// ignore_for_file: avoid_unnecessary_containers, duplicate_ignore, sized_box_for_whitespace
+
+import 'dart:developer';
 
 import 'package:bloodbank_app/constants/colors.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +10,10 @@ class MobileNumber extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController phoneNumberController = ;
+    TextEditingController _phoneNumberController = TextEditingController();
+    log("---------------------------------------------");
+    log("---------mobile_number.dart------------");
+    log("---------------------------------------------");
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -18,49 +23,36 @@ class MobileNumber extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //the enter number field
+              // ignore: avoid_unnecessary_containers
               Container(
                 child: Column(
                   children: [
                     Container(
-                      child: Text(
+                      child: const Text(
                         "Enter your mobile number",
                       ),
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.73,
+                      width: 265,
                       margin: EdgeInsets.only(
                         top: 15,
                       ),
-                      padding: EdgeInsets.fromLTRB(
-                          MediaQuery.of(context).size.width * 0.16, 14, 60, 17),
+                      padding: EdgeInsets.fromLTRB(60, 14, 60, 17),
                       decoration: BoxDecoration(
                           border: Border.all(
                             width: 0.8,
                           ),
-                          borderRadius: BorderRadius.all(
+                          borderRadius: const BorderRadius.all(
                             Radius.circular(
                               20,
                             ),
                           )),
-                      /*child: Text(
+                      child: Text(
                         "+91",
                         style: TextStyle(
                           fontSize: 18,
                           color: MyColors.redPrimary,
                         ),
-                      ),*/
-                      child: TextField(
-                        //validator (value) =>
-                        //
-                        controller: _phoneNumberController,
-
-                        decoration: InputDecoration(
-                            prefix: Text(
-                              "+91",
-                              style: TextStyle(fontSize: 15),
-                            ),
-                            //border: InputBorder,
-                            hintText: 'Your mobile number'),
                       ),
                     ),
                   ],
@@ -68,20 +60,10 @@ class MobileNumber extends StatelessWidget {
               ),
 
               // add some spacing
-              SizedBox(
+              const SizedBox(
                 height: 67,
               ),
-              ElevatedButton(
-                  onPressed: () => {
-                    if(_phoneNumberController.text.isNotEmpty){
-                    print(_phoneNumberController.value),
-                    }
-                  },
-                  child: Text("LogIn"),
-                  style: ButtonStyle(
-                      fixedSize: MaterialStateProperty.all(
-                          Size(MediaQuery.of(context).size.width * 0.73, 53)))),
-              /*Container(
+              Container(
                 height: 53,
                 width: 263,
                 decoration: BoxDecoration(
@@ -96,7 +78,7 @@ class MobileNumber extends StatelessWidget {
                     ),
                   ),
                 ),
-              )*/
+              )
             ],
           ),
         ),

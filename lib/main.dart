@@ -1,4 +1,8 @@
+// ignore_for_file: unused_import, prefer_const_constructors
+
+import 'package:bloodbank_app/constants/routes.dart';
 import 'package:bloodbank_app/screens/mobile_number.dart';
+import 'package:bloodbank_app/screens/onboarding/onboarding0.dart';
 import 'package:bloodbank_app/screens/onboarding/onboarding1.dart';
 import 'package:bloodbank_app/screens/onboarding/onboarding2.dart';
 import 'package:flutter/material.dart';
@@ -15,23 +19,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title:
-          'Bllood Bank App', //primarySwatch is responsible for color of Buttons and AppBar
+      title: 'Bllood Bank App',
       theme: ThemeData(
-          //primaryColor is used to define color shades
-          primaryColor: Colors.red,
-          primarySwatch: Colors.teal,
+          primarySwatch: Colors.red,
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ButtonStyle(
-            backgroundColor:
-                MaterialStateProperty.all(Color.fromARGB(168, 255, 14, 14)),
-            padding: MaterialStateProperty.all(EdgeInsets.all(10)),
-          ))),
+                  // backgroundColor: MaterialStatePropertyAll(Color(0xA8FF0E0E))))
+                  backgroundColor: MaterialStateColor.resolveWith(
+            // ((states) => Color.fromARGB(168.3, 255, 14, 14)),
+            ((states) => Color(0xa8ff0e0e)),
+            // 255*0.6
+          )))
+          // buttonTheme:
+          ),
       // home: SplashScreen(),
       initialRoute: '/',
       routes: {
         "/": (context) => SplashScreen(),
-        '/onboarding': (context) => OnboardingPage1(),
+        "/onboarding": (context) => OnboardingPage(),
+        '/onboarding1': (context) => OnboardingPage1(),
         '/onboarding2': (context) => OnboardingPage2(),
       },
     );
