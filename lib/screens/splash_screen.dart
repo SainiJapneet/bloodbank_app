@@ -22,43 +22,26 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    Future.delayed(
-      Duration(seconds: 3),
-      () => Navigator.pushNamed(context, '/onboarding'),
-    );
-    // TODO: implement initState
-    super.initState();
-  }
-
-  @override
-  State<StatefulWidget> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("My App"),
+        title: Text(
+          "Splash Screen",
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {},
+        child: Icon(
+          Icons.add,
+        ),
       ),
       body: SafeArea(
-          child: Center(
-            child: Image.asset(
-              "assets/bloodbank.png",
-        )),
+        child: Center(
+          child: Image.asset(
+            "assets/bloodbank.png",
+          ),
+        ),
       ),
     );
-  }
-
-  void initState() {
-    Future.delayed(Duration(seconds: 3),
-        () => Navigator.pushNamed(context, '/onboarding'));
-    super.initState();
   }
 }
