@@ -4,6 +4,7 @@ import 'package:bloodbank_app/constants/routes.dart';
 import 'package:bloodbank_app/utils/screen_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
 
 class OtpScreen extends StatelessWidget {
@@ -30,6 +31,8 @@ class OtpScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               fieldWidth: 80,
               style: TextStyle(fontSize: 17),
+              otpFieldStyle: OtpFieldStyle(
+                  backgroundColor: Colors.blue, borderColor: Colors.green),
               textFieldAlignment: MainAxisAlignment.spaceAround,
               fieldStyle: FieldStyle.underline,
               onCompleted: (pin) {
@@ -40,13 +43,11 @@ class OtpScreen extends StatelessWidget {
                 // );
               },
             ),
-            //
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                onPressed: () => {Navigator.pushNamed(context, Routes.home)},
-                child: Text("Verify OTP"),
-              ),
+            ElevatedButton(
+              onPressed: () => {
+                Navigator.pushNamed(context, Routes.home),
+              },
+              child: Text("Go to home"),
             ),
           ],
         ),
