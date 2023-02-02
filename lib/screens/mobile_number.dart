@@ -19,7 +19,6 @@ class _LoginScreenState extends State<LoginScreen> {
     log("---------------------------------------------");
     log("---------mobile_number.dart------------");
     log("---------------------------------------------");
-
     Future<void> _signUp() async {
       if (_phoneNumberController.text.isNotEmpty) {
         print("Your phone number is ${_phoneNumberController.text}");
