@@ -32,9 +32,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
           color: Colors.red,
           child: Center(
             child: ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, Routes.home),
-              child: Text("OK"),
-            ),
+                onPressed: () => Navigator.pushNamed(
+                      context,
+                      Routes.home,
+                    ),
+                child: Text("Data Saved")),
           ),
         ),
       );
@@ -112,11 +114,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ElevatedButton(
                     onPressed: addDataToSharedPrefs,
                     child: const Text('Submit'),
-                  ),
-                  ElevatedButton(
-                    onPressed: createFirestoreData,
-                    child: const Text('Firestore'),
-                  ),
+                  )
                   // ElevatedButton(
                   //   onPressed: addDataToFirestore,
                   //   child: const Text('Add to Firestore'),

@@ -21,8 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> _loginIn() async {
     if (_phoneNumberController.text.isNotEmpty) {
-      signInWithGoogle();
       print("Your phone number is ${_phoneNumberController.text}");
+      _signInWithGoogle();
     }
   }
 
@@ -32,12 +32,13 @@ class _LoginScreenState extends State<LoginScreen> {
     Utilities.logger.i("mobile_number.dart");
   }
 
-  Future<void> signInWithGoogle() async {
+  Future<void> _signInWithGoogle() async {
     _auth.signInWithProvider(googleAuthProvider).then((UserCredential value) {
       log("value is $value");
-      // value.user.photoURL;
-
-      // Navigator.pushNamed(context, Routes.otpScreen);
+      log(value.user!.email.toString());
+      log(value.user!.photoURL.toString());
+      log(value.user!.displayName.toString());
+      Navigator.pushNamed(context, Routes.otpScreen);
     });
   }
 
