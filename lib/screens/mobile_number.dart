@@ -4,6 +4,7 @@ import 'dart:developer';
 
 import 'package:bloodbank_app/constants/colors.dart';
 import 'package:bloodbank_app/constants/routes.dart';
+import 'package:bloodbank_app/utils/utilities.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -15,20 +16,36 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleAuthProvider googleAuthProvider = GoogleAuthProvider();
+
+  TextEditingController _phoneNumberController = TextEditingController();
+
+  Future<void> _loginIn() async {
+    if (_phoneNumberController.text.isNotEmpty) {
+      print("Your phone number is ${_phoneNumberController.text}");
+      _signInWithGoogle();
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    Utilities.logger.i("mobile_number.dart");
+  }
+
+  Future<void> _signInWithGoogle() async {
+    _auth.signInWithProvider(googleAuthProvider).then((UserCredential value) {
+      log("value is $value");
+      log(value.user!.email.toString());
+      log(value.user!.photoURL.toString());
+      log(value.user!.displayName.toString());
+      Navigator.pushNamed(context, Routes.otpScreen);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController _phoneNumberController = TextEditingController();
-    log("---------------------------------------------");
-    log("---------mobile_number.dart------------");
-    log("---------------------------------------------");
-
-    Future<void> _signUp() async {
-      if (_phoneNumberController.text.isNotEmpty) {
-        print("Your phone number is ${_phoneNumberController.text}");
-        // Navigator.pushNamed(context, Routes.otpScreen);
-      }
-    }
-
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -127,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                onPressed: _signUp,
+                onPressed: _loginIn,
                 child: const Text("Login"),
               ),
 
